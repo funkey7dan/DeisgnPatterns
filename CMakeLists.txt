@@ -3,4 +3,4 @@ project(ap4test)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(ap4test main.cpp)
+add_executable(ap4test main.cpp composite.h decorator.h factory.h)
