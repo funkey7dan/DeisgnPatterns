@@ -3,6 +3,7 @@
 #include "composite.h"
 #include "decorator.h"
 #include "factory.h"
+#include <map>
 
 
 
@@ -31,6 +32,14 @@ int main()
     delete f1;
     delete f2;*/
 
+    // factory + map
+    std::map<std::string,Creator*> myMap;
+    myMap.insert(std::pair<std::string,Creator*>("one",new concreteCreator1()));
+    myMap.insert(std::pair<std::string,Creator*>("two",new concreteCreator2()));
+    myMap.insert(std::pair<std::string,Creator*>("three",new concreteCreator3()));
+    std::cout<<myMap.find("one")->second->generate()->doThing()<<std::endl;
+    std::cout<<myMap.find("two")->second->generate()->doThing()<<std::endl;
+    std::cout<<myMap.find("three")->second->generate()->doThing()<<std::endl;
 
     return 0;
 }
